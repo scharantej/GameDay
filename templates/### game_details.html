@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Game Details</title>
+</head>
+<body>
+<h1>Game Details</h1>
+<ul>
+<li>Time: {{ game.time }}</li>
+<li>Channel: {{ game.channel }}</li>
+<li>Teams: {{ game.teams }}</li>
+<li>Score: {{ game.score }}</li>
+<li>Location: {{ game.location }}</li>
+</ul>
+<iframe src="{{ game.watch_link }}" width="640" height="480"></iframe>
+<div id="map" style="width: 640px; height: 480px;"></div>
+<script>
+var map = L.map('map').setView([{{ game.location.latitude }}, {{ game.location.longitude }}], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+L.marker([{{ game.location.latitude }}, {{ game.location.longitude }}]).addTo(map);
+</script>
+</body>
+</html>
+
