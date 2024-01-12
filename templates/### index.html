@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Football Games on TV Today</title>
+</head>
+<body>
+<h1>Football Games on TV Today</h1>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Channel</th>
+<th>Teams</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+{% for game in games %}
+<tr>
+<td>{{ game.time }}</td>
+<td>{{ game.channel }}</td>
+<td>{{ game.teams }}</td>
+<td>{{ game.score }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</body>
+</html>
+
+
